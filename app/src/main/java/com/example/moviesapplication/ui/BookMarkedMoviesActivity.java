@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.moviesapplication.BaseClass;
 import com.example.moviesapplication.MainActivity;
@@ -23,7 +24,6 @@ public class BookMarkedMoviesActivity extends MainActivity implements MovieRemot
     private Context context;
     private RecyclerView bookmarkedMoviesRv;
     private MoviesAdapter bookmarkedAdapter;
-    private String TAG = "simsim";
     private List<Movies> bookmarkedList;
     private RelativeLayout errorLay;
     private MovieRemoteDataSource movieRemoteDataSource;
@@ -36,6 +36,7 @@ public class BookMarkedMoviesActivity extends MainActivity implements MovieRemot
             movieRemoteDataSource = BaseClass.getMovieRemoteDataSource(this);
         init();
         setToolbar();
+        setRefreshLayout();
         changeToolbarText(R.string.bookmarked_movies);
     }
 
@@ -82,5 +83,14 @@ public class BookMarkedMoviesActivity extends MainActivity implements MovieRemot
     @Override
     public void getSearchedMovies(List<Movies> searchedMovies) {
 
+    }
+
+    @Override
+    public void setRefreshLayout(){
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.refreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            movieRemoteDataSource.getBookmarkedMovies();
+            swipeRefreshLayout.setRefreshing(false);
+        });
     }
 }

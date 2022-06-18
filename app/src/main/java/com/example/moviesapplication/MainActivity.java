@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.moviesapplication.adapter.AllMoviesAdapter;
 import com.example.moviesapplication.entity.Movies;
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements MovieRemoteDataLo
     private AllMoviesAdapter allMoviesAdapter;
     private Context context;
     private List<List<Movies>> allMovieList = new ArrayList<>();
-    private String TAG = "simsim";
     private SearchView searchView;
     private Toolbar myToolbar;
     private SearchManager searchManager;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements MovieRemoteDataLo
             movieRemoteDataSource = BaseClass.getMovieRemoteDataSource(this);
         setToolbar();
         init();
+        setRefreshLayout();
     }
 
     @Override
@@ -196,4 +197,11 @@ public class MainActivity extends AppCompatActivity implements MovieRemoteDataLo
 
     }
 
+    public void setRefreshLayout(){
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.refreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            getData();
+            swipeRefreshLayout.setRefreshing(false);
+        });
+    }
 }

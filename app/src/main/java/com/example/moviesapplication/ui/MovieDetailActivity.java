@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.bumptech.glide.Glide;
 import com.example.moviesapplication.BaseClass;
 import com.example.moviesapplication.MainActivity;
@@ -25,7 +27,6 @@ public class MovieDetailActivity extends MainActivity implements MovieRemoteData
     private ImageView movieImg, bookmarkIv;
     private String movieId;
     private Movies movie;
-    private String TAG = "simsim";
     private static final String BASE_URL_IMG = "https://image.tmdb.org/t/p/w300";
     private Context context;
     private LinearLayout bookmarkLay;
@@ -41,6 +42,7 @@ public class MovieDetailActivity extends MainActivity implements MovieRemoteData
             movieRemoteDataSource = BaseClass.getMovieRemoteDataSource(this);
         init();
         setToolbar();
+        setRefreshLayout();
         changeToolbarText(R.string.about_movies);
 
     }
@@ -138,4 +140,12 @@ public class MovieDetailActivity extends MainActivity implements MovieRemoteData
 
     }
 
+    @Override
+    public void setRefreshLayout(){
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.refreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            movieRemoteDataSource.fetchMovie(movieId);
+            swipeRefreshLayout.setRefreshing(false);
+        });
+    }
 }

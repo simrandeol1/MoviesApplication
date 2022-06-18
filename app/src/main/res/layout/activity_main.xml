@@ -36,19 +36,26 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/all_movies_rv"
-        android:orientation="vertical"
-        android:layout_marginTop="75dp" />
+        android:layout_below="@id/appbar_lay">
 
-    <include
-        layout="@layout/error_lay"
-        android:id="@+id/error_layout"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_below="@id/appbar_lay"
-        android:visibility="gone"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/all_movies_rv"
+                android:orientation="vertical" />
+
+            <include
+                layout="@layout/error_lay"
+                android:id="@+id/error_layout"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_below="@id/appbar_lay"
+                android:visibility="gone"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

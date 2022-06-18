@@ -19,19 +19,27 @@
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/bookmarked_movies_rv"
-        android:orientation="vertical"
-        android:layout_below="@id/my_toolbar" />
-
-    <include
-        layout="@layout/error_lay"
-        android:id="@+id/error_layout"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_below="@id/my_toolbar" />
+        android:layout_below="@id/my_toolbar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bookmarked_movies_rv"
+            android:orientation="vertical"
+             />
+
+        <include
+            layout="@layout/error_lay"
+            android:id="@+id/error_layout"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_below="@id/my_toolbar" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

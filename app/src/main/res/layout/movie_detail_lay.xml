@@ -19,110 +19,116 @@
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp" />
 
-    <ScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/my_toolbar">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="20dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:id="@+id/image_cv"
-            app:cardElevation="10dp"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true"
-            android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/movie_image"
-            android:scaleType="center"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/title_tv"
-            android:textSize="22sp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tagline_tv"
-            android:textSize="18sp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/overview_tv"
-            android:textSize="12sp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/vote_tv"
-            android:textSize="12sp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/date_tv"
-            android:textSize="12sp"
-            android:textColor="@color/white"
-            android:fontFamily="sans-serif"
-            android:layout_marginBottom="10dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bookmark_lay"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:background="@drawable/border_white"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/image_cv"
+                app:cardElevation="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="true"
+                android:layout_marginBottom="20dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/bookmark_iv" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/movie_image"
+                android:scaleType="center"/>
+
+            </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/bookmark_tv"
-                android:textSize="14sp"
+                android:id="@+id/title_tv"
+                android:textSize="22sp"
                 android:textColor="@color/white"
                 android:fontFamily="sans-serif-medium"
-                android:layout_marginStart="10dp"
-                android:text="@string/bookmark" />
+                android:layout_marginBottom="10dp"/>
 
-        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tagline_tv"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="10dp"/>
 
-        </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/overview_tv"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:layout_marginBottom="10dp"/>
 
-    </ScrollView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/vote_tv"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_tv"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bookmark_lay"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@drawable/border_white"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bookmark_iv" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bookmark_tv"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/bookmark" />
+
+            </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <include
         layout="@layout/error_lay"

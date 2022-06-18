@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.moviesapplication.BaseClass;
 import com.example.moviesapplication.MainActivity;
@@ -25,7 +26,6 @@ public class SearchResultsActivity extends MainActivity implements MovieRemoteDa
     private Context context;
     private RecyclerView searchedMoviesRv;
     private MoviesAdapter searchedAdapter;
-    private String TAG = "simsim";
     private List<Movies> searchList;
     private RelativeLayout errorLay;
     private String query;
@@ -38,6 +38,7 @@ public class SearchResultsActivity extends MainActivity implements MovieRemoteDa
         movieRemoteDataSource = BaseClass.getMovieRemoteDataSource(this);
         init();
         setToolbar();
+        setRefreshLayout();
         changeToolbarText(R.string.search_results);
         handleIntent(getIntent());
     }
@@ -100,5 +101,17 @@ public class SearchResultsActivity extends MainActivity implements MovieRemoteDa
     public void getSearchedMovies(List<Movies> searchedMovies) {
         searchList = searchedMovies;
         setData();
+    }
+
+    @Override
+    public void setRefreshLayout(){
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.refreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            if(!BaseClass.isNetworkAvailable(this))
+                movieRemoteDataSource.getMovies(query);
+            else
+                movieRemoteDataSource.getSearchMovies(query);
+            swipeRefreshLayout.setRefreshing(false);
+        });
     }
 }
