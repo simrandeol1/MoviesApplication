@@ -14,7 +14,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class FetchData {
 
     private static Retrofit retrofit = null;
-    private static String TAG = "simsim";
 
     private static OkHttpClient buildClient() {
         return new OkHttpClient
@@ -73,7 +72,7 @@ public class FetchData {
         try {
             final Request copy = request.newBuilder().build();
             final Buffer buffer = new Buffer();
-            if (copy != null && copy.body() != null) // make sure its not null to avoif NPE
+            if (copy != null && copy.body() != null)
                 copy.body().writeTo(buffer);
             return buffer.readUtf8();
         } catch (final IOException e) {

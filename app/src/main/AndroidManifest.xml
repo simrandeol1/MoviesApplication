@@ -23,7 +23,8 @@
         </activity>
         <activity
             android:name=".ui.MovieDetailActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode = "singleTop"/>
         <activity
             android:name=".ui.BookMarkedMoviesActivity"
             android:exported="true"

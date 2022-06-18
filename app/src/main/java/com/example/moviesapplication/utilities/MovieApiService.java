@@ -1,12 +1,10 @@
 package com.example.moviesapplication.utilities;
 
-import com.example.moviesapplication.entity.Movies;
 import com.example.moviesapplication.model.MoviesList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface MovieApiService {

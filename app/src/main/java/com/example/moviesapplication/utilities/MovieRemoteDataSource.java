@@ -2,7 +2,6 @@ package com.example.moviesapplication.utilities;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.example.moviesapplication.database.MovieDatabase;
 import com.example.moviesapplication.entity.Movies;

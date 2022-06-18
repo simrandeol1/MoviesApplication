@@ -15,7 +15,6 @@ import com.example.moviesapplication.entity.Movies;
 
         private static final String TAG = MovieDatabase.class.getSimpleName();
 
-        // For Singleton instantiation
         private static final Object LOCK = new Object();
         private static MovieDatabase sInstance;
 
@@ -33,6 +32,5 @@ import com.example.moviesapplication.entity.Movies;
             return sInstance;
         }
 
-        // The associated DAOs for the database
         public abstract MovieDao movieDao();
 }
