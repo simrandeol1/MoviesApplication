@@ -1,17 +1,14 @@
 package com.example.moviesapplication;
 
-import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,22 +16,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviesapplication.adapter.AllMoviesAdapter;
-import com.example.moviesapplication.database.MovieDatabase;
 import com.example.moviesapplication.entity.Movies;
-import com.example.moviesapplication.model.MoviesList;
 import com.example.moviesapplication.ui.BookMarkedMoviesActivity;
 import com.example.moviesapplication.ui.SearchResultsActivity;
-import com.example.moviesapplication.utilities.FetchData;
-import com.example.moviesapplication.utilities.MovieApiService;
 import com.example.moviesapplication.utilities.MovieRemoteDataLocal;
 import com.example.moviesapplication.utilities.MovieRemoteDataSource;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements MovieRemoteDataLocal {
 
@@ -47,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements MovieRemoteDataLo
     private Toolbar myToolbar;
     private SearchManager searchManager;
     private RelativeLayout errorLay;
-    private MovieRemoteDataSource movieRemoteDataSource;
+
+    MovieRemoteDataSource movieRemoteDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

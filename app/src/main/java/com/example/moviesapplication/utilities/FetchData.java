@@ -1,7 +1,5 @@
 package com.example.moviesapplication.utilities;
 
-import android.util.Log;
-
 import java.io.IOException;
 
 import okhttp3.HttpUrl;
@@ -35,6 +33,7 @@ public class FetchData {
         }
         return retrofit;
     }
+
     public static class LoggingInterceptor implements Interceptor {
         @Override public okhttp3.Response intercept(Chain chain) throws IOException {
 

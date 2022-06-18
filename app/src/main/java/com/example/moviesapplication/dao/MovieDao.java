@@ -34,7 +34,7 @@ import java.util.List;
         @Query("SELECT DISTINCT * FROM movie WHERE title LIKE :title OR original_title LIKE :title")
         List<Movies> loadMovieByTitle(String title);
 
-        @Query("SELECT * FROM movie WHERE tag = :tag")
+        @Query("SELECT DISTINCT * FROM movie WHERE tag LIKE :tag")
         List<Movies> loadMoviesByTag(String tag);
 
 }

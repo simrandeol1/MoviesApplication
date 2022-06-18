@@ -2,6 +2,7 @@ package com.example.moviesapplication.utilities;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.moviesapplication.database.MovieDatabase;
 import com.example.moviesapplication.entity.Movies;
@@ -36,13 +37,15 @@ public class MovieRemoteDataSource {
     public void setListener(MovieRemoteDataLocal remoteDataLocal){
         this.remoteDataLocal = remoteDataLocal;
     }
+
     public void setPopularMoviesData(){
         Call<MoviesList> movieResultCallback = movieApiService.getPopularMovies();
         movieResultCallback.enqueue(new Callback<MoviesList>() {
             @Override
             public void onResponse(Call<MoviesList> call, Response<MoviesList> response) {
                 if(response.isSuccessful()) {
-                    for(Movies movie: response.body().getResults()){
+                    List<Movies> movies = response.body().getResults();
+                    for(Movies movie: movies){
                         movie.setTag("popular");
                         movieDatabase.movieDao().insertMovie(movie);
                     }
@@ -62,7 +65,8 @@ public class MovieRemoteDataSource {
             @Override
             public void onResponse(Call<MoviesList> call, Response<MoviesList> response) {
                 if (response.isSuccessful()) {
-                    for(Movies movie: response.body().getResults()) {
+                    List<Movies> movies = response.body().getResults();
+                    for(Movies movie: movies) {
                         movie.setTag("top rated");
                         movieDatabase.movieDao().insertMovie(movie);
                     }
@@ -106,23 +110,6 @@ public class MovieRemoteDataSource {
             }
         }.execute();
     }
-
-//    public void getMovieDetail(String movieId){
-//        Call<Movies> movieResultCallback = movieApiService.getMoviesDetail(movieId);
-//        movieResultCallback.enqueue(new Callback<Movies>() {
-//            @Override
-//            public void onResponse(Call<Movies> call, Response<Movies> response) {
-//                if(response.isSuccessful()) {
-//                    remoteDataLocal.getMovieDetail(response.body());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<Movies> call, Throwable t) {
-//                fetchMovie(movieId);
-//            }
-//        });
-//    }
 
     @SuppressLint("StaticFieldLeak")
     public void fetchMovie(String movieId){

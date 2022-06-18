@@ -8,14 +8,19 @@ import android.net.NetworkInfo;
 import com.example.moviesapplication.database.MovieDatabase;
 import com.example.moviesapplication.utilities.FetchData;
 import com.example.moviesapplication.utilities.MovieApiService;
-import com.example.moviesapplication.utilities.MovieRemoteDataLocal;
 import com.example.moviesapplication.utilities.MovieRemoteDataSource;
 
-public class BaseClass {
+public class BaseClass extends Application{
 
     private static MovieRemoteDataSource movieRemoteDataSource;
     private static MovieApiService movieApiService;
     private static MovieDatabase movieDatabase;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+    }
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

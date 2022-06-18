@@ -1,13 +1,9 @@
 package com.example.moviesapplication.ui;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +12,6 @@ import com.example.moviesapplication.BaseClass;
 import com.example.moviesapplication.MainActivity;
 import com.example.moviesapplication.R;
 import com.example.moviesapplication.adapter.MoviesAdapter;
-import com.example.moviesapplication.database.MovieDatabase;
 import com.example.moviesapplication.entity.Movies;
 import com.example.moviesapplication.utilities.MovieRemoteDataLocal;
 import com.example.moviesapplication.utilities.MovieRemoteDataSource;

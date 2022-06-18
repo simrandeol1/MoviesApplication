@@ -1,15 +1,11 @@
 package com.example.moviesapplication.ui;
 
-import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,20 +14,11 @@ import com.example.moviesapplication.BaseClass;
 import com.example.moviesapplication.MainActivity;
 import com.example.moviesapplication.R;
 import com.example.moviesapplication.adapter.MoviesAdapter;
-import com.example.moviesapplication.database.MovieDatabase;
 import com.example.moviesapplication.entity.Movies;
-import com.example.moviesapplication.model.MoviesList;
-import com.example.moviesapplication.utilities.FetchData;
-import com.example.moviesapplication.utilities.MovieApiService;
 import com.example.moviesapplication.utilities.MovieRemoteDataLocal;
 import com.example.moviesapplication.utilities.MovieRemoteDataSource;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SearchResultsActivity extends MainActivity implements MovieRemoteDataLocal {
 
@@ -42,7 +29,7 @@ public class SearchResultsActivity extends MainActivity implements MovieRemoteDa
     private List<Movies> searchList;
     private RelativeLayout errorLay;
     private String query;
-    private MovieRemoteDataSource movieRemoteDataSource;
+    MovieRemoteDataSource movieRemoteDataSource;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
