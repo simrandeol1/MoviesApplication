@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/header_tv"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_alignParentTop="true" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/movies_rv"
+        android:orientation="horizontal"
+        android:layout_margin="12dp"
+        android:layout_below="@id/header_tv"/>
+
+</RelativeLayout>
